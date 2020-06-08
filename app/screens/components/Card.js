@@ -1,6 +1,6 @@
 import React from "react";
 import AppText from "./AppText";
-import colors from "../config/colors";
+import colors from "../../config/colors";
 
 import { View, Image, StyleSheet } from "react-native";
 
