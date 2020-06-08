@@ -36,6 +36,7 @@ function MessagesScren(props) {
             title={item.title}
             subtitle={item.description}
             image={item.image}
+            onPress={() => console.log("Message selected", item)} //this output show us which object we clicked
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}
