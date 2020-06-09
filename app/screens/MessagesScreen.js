@@ -10,6 +10,7 @@ import {
 import ListItems from "../components/ListItems";
 import Screen from "../components/Screen";
 import ListItemSeparator from "../components/ListItemSeparator";
+import ListItemDeleteAction from "../components/ListItemDeleteAction";
 
 const messages = [
   {
@@ -37,6 +38,7 @@ function MessagesScren(props) {
             subtitle={item.description}
             image={item.image}
             onPress={() => console.log("Message selected", item)} //this output show us which object we clicked
+            renderRightActions={ListItemDeleteAction}
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}
