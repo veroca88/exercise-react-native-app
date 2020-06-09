@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FlatList,
   StyleSheet,
@@ -12,7 +12,7 @@ import Screen from "../components/Screen";
 import ListItemSeparator from "../components/ListItemSeparator";
 import ListItemDeleteAction from "../components/ListItemDeleteAction";
 
-const messages = [
+const initialMessages = [
   {
     id: 1,
     title: "t1",
@@ -27,6 +27,23 @@ const messages = [
   },
 ];
 function MessagesScren(props) {
+  const [messages, setMessages] = useState(initialMessages); //initial value
+  // //first element in this array is the state variable array
+  // // second element is a function to update the state variable (similar setState)
+
+  // Delete the message from our messages (client side)
+  const handleDelete = (message) => {
+    // OPTION ONE
+    // const newMessages = messages.filter(
+    //   (eachMessage) => eachMessage.id !== message.id
+    // );
+    // setMessages(newMessages);
+
+    //OPTION TWO
+    setMessages(
+      messages.filter((eachMessage) => eachMessage.id !== message.id)
+    );
+  };
   return (
     <Screen>
       <FlatList
@@ -38,7 +55,9 @@ function MessagesScren(props) {
             subtitle={item.description}
             image={item.image}
             onPress={() => console.log("Message selected", item)} //this output show us which object we clicked
-            renderRightActions={ListItemDeleteAction}
+            renderRightActions={() => (
+              <ListItemDeleteAction onPress={() => handleDelete(item)} />
+            )}
           />
         )}
         ItemSeparatorComponent={ListItemSeparator}
