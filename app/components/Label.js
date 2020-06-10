@@ -5,19 +5,14 @@ import AppText from "../components/AppText";
 
 import colors from "../config/colors";
 
-export default function Label({ name, title }) {
+export default function Label({ name, title, color }) {
   return (
     <View style={styles.container}>
-      <View style={styles.backgroundIcon}>
-        <MaterialCommunityIcons
-          size={25}
-          name={name}
-          color={colors.white}
-          title={title}
-        />
+      <View style={[styles.backgroundIcon, { backgroundColor: colors[color] }]}>
+        <MaterialCommunityIcons size={25} name={name} color={colors.white} />
       </View>
       <View style={styles.label}>
-        <Text style={styles.text}>My Listings</Text>
+        <Text style={styles.text}>{title}</Text>
       </View>
     </View>
   );

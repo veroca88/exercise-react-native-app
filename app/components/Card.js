@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
   },
   detailsContainer: {
     padding: 20,
+    flexDirection: "row",
   },
   image: {
     width: "100%",
