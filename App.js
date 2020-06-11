@@ -16,10 +16,16 @@ import { View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import AppPicker from "./app/components/AppPicker";
 
+const categories = [
+  { label: "furniture", value: 1 },
+  { label: "clothing", value: 2 },
+  { label: "cameras", value: 3 },
+];
+
 export default function App() {
   return (
     <Screen>
-      <AppPicker icon="apps" placeholder="Category" />
+      <AppPicker items={categories} icon="apps" placeholder="Category" />
       <AppTextInput icon="email" placeholder="email" />
     </Screen>
   );
