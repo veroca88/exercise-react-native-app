@@ -14,11 +14,13 @@ import AppTextInput from "./app/components/AppTextInput";
 
 import { View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
+import AppPicker from "./app/components/AppPicker";
 
 export default function App() {
   return (
     <Screen>
-      <AppTextInput placeholder="Username" icon="email" />
+      <AppPicker icon="apps" placeholder="Category" />
+      <AppTextInput icon="email" placeholder="email" />
     </Screen>
   );
 }
