@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
     overflow: "hidden", //it helps to our image get the radius of 15
   },
   detailsContainer: {
-    padding: 20,
-    flexDirection: "row",
+    padding: 10,
+    flexDirection: "column",
   },
   image: {
     width: "100%",
