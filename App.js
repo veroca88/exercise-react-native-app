@@ -15,25 +15,31 @@ import AppTextInput from "./app/components/AppTextInput";
 import { View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import AppPicker from "./app/components/AppPicker";
+import LoginScreen from "./app/screens/LoginScreen";
+import AppButton from "./app/components/AppButton";
 
-const categories = [
-  { label: "furniture", value: 1 },
-  { label: "clothing", value: 2 },
-  { label: "cameras", value: 3 },
-];
+// DATA FOR TESTING AppPicker
+// const categories = [
+//   { label: "furniture", value: 1 },
+//   { label: "clothing", value: 2 },
+//   { label: "cameras", value: 3 },
+// ];
+// export default function App() {
+//   const [category, setCategory] = useState();
+//   return (
+//     <Screen>
+//       <AppPicker
+//         selectedItem={category}
+//         onSelectItem={(item) => setCategory(item)}
+//         items={categories}
+//         icon="apps"
+//         placeholder="Category"
+//       />
+//       <AppTextInput icon="email" placeholder="email" />
+//     </Screen>
+//   );
 
 export default function App() {
-  const [category, setCategory] = useState();
-  return (
-    <Screen>
-      <AppPicker
-        selectedItem={category}
-        onSelectItem={(item) => setCategory(item)}
-        items={categories}
-        icon="apps"
-        placeholder="Category"
-      />
-      <AppTextInput icon="email" placeholder="email" />
-    </Screen>
-  );
+  return <LoginScreen />;
+  // return <WelcomeScreen />;
 }
