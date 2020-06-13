@@ -41,5 +41,4 @@ import AppButton from "./app/components/AppButton";
 
 export default function App() {
   return <LoginScreen />;
-  // return <WelcomeScreen />;
 }
