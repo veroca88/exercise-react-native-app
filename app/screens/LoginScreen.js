@@ -6,6 +6,7 @@ import * as Yup from "yup";
 import Screen from "../components/Screen";
 import AppFormField from "../components/AppFormField";
 import AppButton from "../components/AppButton";
+import SubmitButton from "../components/SubmitButton";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -21,8 +22,11 @@ function LoginScreen(props) {
         validationSchema={validationSchema}
       >
         {/* We need to get access to all of these properties in AppFormField.js How can we get those??
-        Formik has a function and we are goint to import in the AppFormField.js file */}
-        {({ handleSubmit }) => (
+        Formik has a function and we are going to import in the AppFormField.js file
+        {({ handleSubmit, handleChange, errors, setFieldTouched, touched }) => (
+          As we created two components AppFormField and SubmitButton we not longer need any of those props so 
+          our funtion now is with no parameters */}
+        {() => (
           <>
             <AppFormField
               autoCapitalize="none"
@@ -41,7 +45,7 @@ function LoginScreen(props) {
               placeholder="Password"
               secureTextEntry
             />
-            <AppButton color="primary" title="Login" onPress={handleSubmit} />
+            <SubmitButton title="login" />
           </>
         )}
       </Formik>
