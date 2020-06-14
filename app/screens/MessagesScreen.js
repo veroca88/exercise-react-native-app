@@ -7,10 +7,10 @@ import {
   //   StatusBar,
 } from "react-native";
 
-import ListItems from "../components/ListItems";
+import ListItems from "../components/lists/ListItems";
 import Screen from "../components/Screen";
-import ListItemSeparator from "../components/ListItemSeparator";
-import ListItemDeleteAction from "../components/ListItemDeleteAction";
+import ListItemSeparator from "../components/lists/ListItemSeparator";
+import ListItemDeleteAction from "../components/lists/ListItemDeleteAction";
 
 const initialMessages = [
   {
