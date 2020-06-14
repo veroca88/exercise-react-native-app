@@ -16,6 +16,7 @@ import { View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import AppPicker from "./app/components/AppPicker";
 import LoginScreen from "./app/screens/LoginScreen";
+import PreviousLoginScreen from "./app/components/PreviousLoginScreen";
 import AppButton from "./app/components/AppButton";
 
 // DATA FOR TESTING AppPicker
@@ -41,4 +42,5 @@ import AppButton from "./app/components/AppButton";
 
 export default function App() {
   return <LoginScreen />;
+  // return <PreviousLoginScreen />;
 }
