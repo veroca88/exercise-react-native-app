@@ -2,10 +2,9 @@ import React from "react";
 import { StyleSheet, Image } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import ErrorMessage from "../components/ErrorMessage";
 
 import Screen from "../components/Screen";
-import AppTextInput from "../components/AppTextInput";
+import AppFormField from "../components/AppFormField";
 import AppButton from "../components/AppButton";
 
 const validationSchema = Yup.object().shape({
@@ -21,32 +20,27 @@ function LoginScreen(props) {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) => (
+        {/* We need to get access to all of these properties in AppFormField.js How can we get those??
+        Formik has a function and we are goint to import in the AppFormField.js file */}
+        {({ handleSubmit }) => (
           <>
-            <AppTextInput
+            <AppFormField
               autoCapitalize="none"
               autoCorrect={false}
               icon="email"
               keyboardType="email-address"
-              onBlur={() => setFieldTouched("email")}
-              onChangeText={handleChange("email")}
+              name="email"
               placeholder="Email"
               // textContentType="emailAddress" //auto fill from cache works only in IOS
             />
-            {/* //OPTION ONE
-            { touched.email && <ErrorMessage error={errors.email} />} */}
-            {/* //OPTION TWO WITH VISIBLE PROPS */}
-            <ErrorMessage error={errors.email} visible={touched.email} />
-            <AppTextInput
+            <AppFormField
               autoCapitalize="none"
               autoCorrect={false}
               icon="lock"
-              onChangeText={handleChange("password")}
-              onBlur={() => setFieldTouched("password")}
+              name="password"
               placeholder="Password"
               secureTextEntry
             />
-            <ErrorMessage error={errors.password} visible={touched.password} />
             <AppButton color="primary" title="Login" onPress={handleSubmit} />
           </>
         )}
