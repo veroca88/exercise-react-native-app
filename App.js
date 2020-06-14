@@ -19,6 +19,8 @@ import LoginScreen from "./app/screens/LoginScreen";
 import PreviousLoginScreen from "./app/components/PreviousLoginScreen";
 import AppButton from "./app/components/AppButton";
 import RegisterScreen from "./app/screens/RegisterScreen";
+import AppFormPicker from "./app/components/forms/AppFormPicker";
+import ListingEditScreen from "./app/screens/ListingEditScreen";
 
 // DATA FOR TESTING AppPicker
 // const categories = [
@@ -44,5 +46,6 @@ import RegisterScreen from "./app/screens/RegisterScreen";
 export default function App() {
   // return <LoginScreen />;
   // return <PreviousLoginScreen />;
-  return <RegisterScreen />;
+  // return <RegisterScreen />;
+  return <ListingEditScreen />;
 }
