@@ -6,7 +6,7 @@ import * as Yup from "yup";
 
 import AppTextInput from "./AppTextInput";
 import AppButton from "./AppButton";
-import ErrorMessage from "./ErrorMessage";
+import ErrorMessage from "../components/forms/ErrorMessage";
 import Screen from "./Screen";
 import AppText from "./AppText";
 
