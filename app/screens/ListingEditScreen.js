@@ -3,8 +3,12 @@ import { StyleSheet } from "react-native";
 import * as Yup from "yup";
 
 import Screen from "../components/Screen";
-import { AppForm, AppFormField, SubmitButton } from "../components/forms/index";
-import AppFormPicker from "../components/forms/AppFormPicker";
+import {
+  AppForm,
+  AppFormField,
+  SubmitButton,
+  AppFormPicker,
+} from "../components/forms/index";
 
 const categories = [
   { label: "furniture", value: 1 },
@@ -16,7 +20,7 @@ const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
   price: Yup.number().required().moreThan(0).lessThan(10000).label("Price"),
   category: Yup.string().required().nullable().label("Categoty"),
-  description: Yup.string().optional().label("Description"),
+  description: Yup.string().label("Description"),
 });
 
 function ListingEditScreen(props) {
@@ -45,8 +49,9 @@ function ListingEditScreen(props) {
           placeholder="Category"
         />
         <AppFormField
-          autoCapitalize="none"
-          autoCorrect={false}
+          maxLength={225}
+          multiline
+          numberOfLines={3}
           name="description"
           placeholder="Description"
         />

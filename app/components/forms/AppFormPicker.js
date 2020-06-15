@@ -10,7 +10,7 @@ function AppFormPicker({ items, name, placeholder }) {
     <>
       <AppPicker
         items={items}
-        onSelectItem={(item) => setFieldValue(item)}
+        onSelectItem={(item) => setFieldValue(name, item)}
         selectedItem={values[name]}
         placeholder={placeholder}
       />
