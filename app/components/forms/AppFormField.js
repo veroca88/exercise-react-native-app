@@ -6,7 +6,7 @@ import ErrorMessage from "./ErrorMessage";
 
 //name for email
 
-function AppFormField({ name, ...otherProps }) {
+function AppFormField({ name, width, ...otherProps }) {
   const { setFieldTouched, handleChange, errors, touched } = useFormikContext();
   return (
     <>
@@ -19,6 +19,7 @@ function AppFormField({ name, ...otherProps }) {
         // placeholder="Email"
         onBlur={() => setFieldTouched(name)}
         onChangeText={handleChange(name)}
+        width={width}
         {...otherProps}
 
         // textContentType="emailAddress" //auto fill from cache works only in IOS
