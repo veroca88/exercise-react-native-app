@@ -17,7 +17,9 @@ import PickerItem from "./PickerItem";
 function AppPicker({
   icon,
   items,
+  numberOfColumns,
   onSelectItem,
+  PickerItemComponent = PickerItem,
   placeholder,
   selectedItem,
   width = "100%",
@@ -53,8 +55,14 @@ function AppPicker({
           <FlatList
             data={items}
             keyExtractor={(item) => item.value.toString()}
+            numColumns={numberOfColumns}
             renderItem={({ item }) => (
-              <PickerItem
+              // <PickerItem this is not longer used due to we want to have a flexible architecture
+              <PickerItemComponent
+                //this prop item={item} is general and reusable and set to the item that we want to render,
+                //this item is an object that can have a lot of props for example backgroundcolor for our component <Icon />
+                //we use item because we want to set props in our component Icon inside CategoryPickerItem
+                item={item}
                 label={item.label}
                 onPress={() => {
                   setModalVisible(false);

@@ -2,10 +2,13 @@ import React from "react";
 import { TouchableOpacity, StyleSheet } from "react-native";
 import AppText from "./AppText";
 
-function PickerItem({ label, onPress }) {
+// We add item as prop because we want to have consistency due to we create a flexiblecomponent called
+//CategoryPickerItem that has the same props and item as a prop we not longer required label before { item, label, onPress }
+
+function PickerItem({ item, onPress }) {
   return (
     <TouchableOpacity style={styles.text} onPress={onPress}>
-      <AppText>{label}</AppText>
+      <AppText>{item.label}</AppText>
     </TouchableOpacity>
   );
 }

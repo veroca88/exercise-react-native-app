@@ -43,10 +43,31 @@ import ListingEditScreen from "./app/screens/ListingEditScreen";
 //     </Screen>
 //   );
 
+const item = [
+  {
+    label: "furniture",
+    value: 1,
+    backgroundColor: "red",
+    icon: "apps",
+  },
+  // {
+  //   label: "clothing",
+  //   value: 2,
+  //   backgroundColor: "green",
+  //   icon: "email",
+  // },
+  // { label: "cameras", value: 3, backgroundColor: "blue", icon: "lock" },
+];
+
 export default function App() {
   // return <LoginScreen />;
   // return <PreviousLoginScreen />;
   // return <RegisterScreen />;
   // return <MessagesScreen />;
   return <ListingEditScreen />;
+  // return (
+  //   <View style={{ paddingTop: 50 }}>
+  //     <Icon name="email" />
+  //   </View>
+  // );
 }
