@@ -65,29 +65,10 @@ export default function App() {
   // return <PreviousLoginScreen />;
   // return <RegisterScreen />;
   // return <MessagesScreen />;
-  // return <ListingEditScreen />;
+  return <ListingEditScreen />;
   // return (
   //   <View style={{ paddingTop: 50 }}>
   //     <Icon name="email" />
   //   </View>
   // );
-  const [imageUris, setImageUris] = useState([]);
-
-  handdleAdd = (uri) => {
-    setImageUris([...imageUris, uri]);
-  };
-
-  handdleRemove = (uri) => {
-    setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
-  };
-
-  return (
-    <Screen>
-      <ImageInputList
-        imagesUris={imageUris}
-        onAddImage={handdleAdd} // is the same of {uri => handdleAdd(uri)}
-        onRemoveImage={handdleRemove}
-      />
-    </Screen>
-  );
 }

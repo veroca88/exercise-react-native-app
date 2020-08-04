@@ -10,13 +10,16 @@ import {
   SubmitButton,
   AppFormPicker,
 } from "../components/forms";
+import FormImagePicker from "../components/forms/FormImagePicker";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
   price: Yup.number().required().min(1).max(10000).label("Price"),
   description: Yup.string().label("Description"),
   category: Yup.string().required().nullable().label("Categoty"),
+  images: Yup.array().min(1, "Please select at least one image."),
 });
+// .label("Images") will display "IMage field is required"
 
 const categories = [
   {
@@ -42,10 +45,12 @@ function ListingEditScreen(props) {
           price: "",
           category: null,
           description: "",
+          images: [],
         }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
+        <FormImagePicker name="images" />
         <AppFormField maxLength={225} name="title" placeholder="Title" />
         <AppFormField
           keyboardType="numeric"
