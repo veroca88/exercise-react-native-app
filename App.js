@@ -21,6 +21,7 @@ import AppButton from "./app/components/AppButton";
 import RegisterScreen from "./app/screens/RegisterScreen";
 import AppFormPicker from "./app/components/forms/AppFormPicker";
 import ListingEditScreen from "./app/screens/ListingEditScreen";
+import ImageInputList from "./app/components/ImageInputList";
 
 // DATA FOR TESTING AppPicker
 // const categories = [
@@ -43,31 +44,50 @@ import ListingEditScreen from "./app/screens/ListingEditScreen";
 //     </Screen>
 //   );
 
-const item = [
-  {
-    label: "furniture",
-    value: 1,
-    backgroundColor: "red",
-    icon: "apps",
-  },
-  // {
-  //   label: "clothing",
-  //   value: 2,
-  //   backgroundColor: "green",
-  //   icon: "email",
-  // },
-  // { label: "cameras", value: 3, backgroundColor: "blue", icon: "lock" },
-];
+// const item = [
+//   {
+//     label: "furniture",
+//     value: 1,
+//     backgroundColor: "red",
+//     icon: "apps",
+//   },
+// {
+//   label: "clothing",
+//   value: 2,
+//   backgroundColor: "green",
+//   icon: "email",
+// },
+// { label: "cameras", value: 3, backgroundColor: "blue", icon: "lock" },
+// ];
 
 export default function App() {
   // return <LoginScreen />;
   // return <PreviousLoginScreen />;
   // return <RegisterScreen />;
   // return <MessagesScreen />;
-  return <ListingEditScreen />;
+  // return <ListingEditScreen />;
   // return (
   //   <View style={{ paddingTop: 50 }}>
   //     <Icon name="email" />
   //   </View>
   // );
+  const [imageUris, setImageUris] = useState([]);
+
+  handdleAdd = (uri) => {
+    setImageUris([...imageUris, uri]);
+  };
+
+  handdleRemove = (uri) => {
+    setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
+  };
+
+  return (
+    <Screen>
+      <ImageInputList
+        imagesUris={imageUris}
+        onAddImage={handdleAdd} // is the same of {uri => handdleAdd(uri)}
+        onRemoveImage={handdleRemove}
+      />
+    </Screen>
+  );
 }
