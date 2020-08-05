@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
+import * as Location from "expo-location";
 
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import Screen from "../components/Screen";
@@ -37,6 +38,20 @@ const categories = [
   { label: "cameras", value: 3, backgroundColor: "#F07C19", icon: "camcorder" },
 ];
 function ListingEditScreen(props) {
+  const [location, setLocation] = useState();
+
+  const getLocation = async () => {
+    const { granted } = await Location.requestPermissionsAsync();
+    if (!granted) return;
+    const {
+      coords: { latitude, longitude },
+    } = await Location.getLastKnownPositionAsync();
+    setLocation({ latitude, longitude });
+  };
+  useEffect(() => {
+    getLocation();
+  }, []);
+
   return (
     <Screen style={styles.container}>
       <AppForm
@@ -47,7 +62,7 @@ function ListingEditScreen(props) {
           description: "",
           images: [],
         }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values) => console.log(location)}
         validationSchema={validationSchema}
       >
         <FormImagePicker name="images" />
@@ -64,6 +79,7 @@ function ListingEditScreen(props) {
           name="category"
           numberOfColumns={3}
           PickerItemComponent={CategoryPickerItem}
+          // PickerItem={CategoryPickerItem}
           placeholder="Category"
           width="50%"
         />

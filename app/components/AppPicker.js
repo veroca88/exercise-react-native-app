@@ -17,9 +17,9 @@ import PickerItem from "./PickerItem";
 function AppPicker({
   icon,
   items,
-  numberOfColumns,
+  numberOfColumns = 1,
   onSelectItem,
-  PickerItemComponent = PickerItem,
+  PickerIC = PickerItem,
   placeholder,
   selectedItem,
   width = "100%",
@@ -56,12 +56,13 @@ function AppPicker({
             data={items}
             keyExtractor={(item) => item.value.toString()}
             numColumns={numberOfColumns}
+            // <PickerItem this is not longer used due to we want to have a flexible architecture
+            // _____________
+            //this prop item={item} is general and reusable and set to the item that we want to render,
+            //this item is an object that can have a lot of props for example backgroundcolor for our component <Icon />
+            //we use item because we want to set props in our component Icon inside CategoryPickerItem
             renderItem={({ item }) => (
-              // <PickerItem this is not longer used due to we want to have a flexible architecture
-              <PickerItemComponent
-                //this prop item={item} is general and reusable and set to the item that we want to render,
-                //this item is an object that can have a lot of props for example backgroundcolor for our component <Icon />
-                //we use item because we want to set props in our component Icon inside CategoryPickerItem
+              <PickerIC
                 item={item}
                 label={item.label}
                 onPress={() => {
